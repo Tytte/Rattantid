@@ -7,5 +7,5 @@ jobs:
     steps:
       - name: kontrollera arbetsflödet
         run: echo "Rattantid fungerar"
-              - name: Testa Python
-                      run: python trafikdata.py
+      - name: Testa Python
+         run: python trafikdata.py
