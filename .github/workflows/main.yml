@@ -7,6 +7,6 @@ jobs:
     steps:
     - uses: actions/checkout@v4      
     - name: Kontrollera arbetsflödet
-        run: echo "Rattantid fungerar"
+      run: echo "Rattantid fungerar"
     - name: Testa Python
-        run: python trafikdata.py
+      run: python trafikdata.py
