@@ -10,3 +10,5 @@ jobs:
       run: echo "Rattantid fungerar"
     - name: Testa Python
       run: python trafikdata.py
+      env:
+          TRAFIKVERKET_API_KEY: ${{ secrets.TRAFIKVERKET_API_KEY}}
