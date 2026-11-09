@@ -18,6 +18,7 @@ query = f"""<REQUEST>
 <INCLUDE>AdvertisedTrainIdent</INCLUDE>
 <INCLUDE>LocationSignature</INCLUDE>
 <INCLUDE>AdvertisedTimeAtLocation</INCLUDE>
+<INCLUDE>EstimatedTimeAtLocation</INCLUDE>
 </QUERY>
 </REQUEST>"""
 
