@@ -36,7 +36,7 @@ try:
     trains = root.findall(".//TrainAnnouncement")
     print("Kontakt med Trafikverket lyckades")
     print("Antal tågannonseringar:", len(trains))
-
+    print("Första tågannonseringen:", ET.tostring(trains[0], encoding="unicode") if trains else "Inga annonseringar")
 except Exception as error:
     print("Fel vid hämtning:", error)
     raise SystemExit(1)
