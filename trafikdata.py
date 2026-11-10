@@ -1,4 +1,6 @@
 import os
+import json
+from datetime import datetime, timezone
 import urllib.request
 import xml.etree.ElementTree as ET
 
@@ -37,7 +39,13 @@ try:
     trains = root.findall(".//TrainAnnouncement")
     print("Kontakt med Trafikverket lyckades")
     print("Antal tågannonseringar:", len(trains))
+
     print("Första tågannonseringen:", ET.tostring(trains[0], encoding="unicode") if trains else "Inga annonseringar")
 except Exception as error:
     print("Fel vid hämtning:", error)
     raise SystemExit(1)
+output = []
+for train in trains:
+    output.append(ET.tostring(train, encoding="unicode"))
+with open("trafikdata.json", "w", encoding="utf-8") as f:
+    json.dump(output, f, ensure_ascii=False)
