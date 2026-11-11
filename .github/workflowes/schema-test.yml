@@ -1,0 +1,11 @@
+name: Schema-test
+on:
+  schedule:
+    - cron: '11,26,41,56 * * * *'
+
+jobs:
+  test:
+   runs-on: ubuntu-latest
+    steps:
+      - run: echo "Schemat startade"
+                  
