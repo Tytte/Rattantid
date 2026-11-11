@@ -1,6 +1,8 @@
 name: Rattantid-test
 on:
   workflow_dispatch: {}
+  schedule:
+      - cron: '*/15  * * * *'
 jobs:
   test:
     runs-on: ubuntu-latest
