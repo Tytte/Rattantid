@@ -17,13 +17,19 @@ print("API-nyckel hittad")
 query = f"""<REQUEST>
 <LOGIN authenticationkey="{api_key}" />
 <QUERY objecttype="TrainAnnouncement" schemaversion="1.9">
+<FILTER>
+  <AND>
+    <EQ name="LocationSignature" value="Mc" />
+    <GT name="AdvertisedTimeAtLocation" value="$dateadd(-00:30:00)" />
+    <LT name="AdvertisedTimeAtLocation" value="$dateadd(04:00:00)" />
+  </AND>
+</FILTER>
 <INCLUDE>AdvertisedTrainIdent</INCLUDE>
-<INCLUDE>LocationSignature</INCLUDE>
+<INCLUDE>LocationSignature</INCLUDE> 
 <INCLUDE>AdvertisedTimeAtLocation</INCLUDE>
 <INCLUDE>EstimatedTimeAtLocation</INCLUDE>
 </QUERY>
 </REQUEST>"""
-
 request = urllib.request.Request(
     "https://api.trafikinfo.trafikverket.se/v2/data.xml",
     data=query.encode("utf-8"),
